@@ -2,6 +2,17 @@ import os
 import glob
 import time
 
+def reset():
+   """ Resets the datafiles """
+   # Go to the data path
+   Datapath = os.path.dirname(os.path.realpath(__file__))
+   Datapath = Datapath[:-3] + ('data')
+
+   # Make a list of files
+   for path in glob.glob("{0}\\*.txt".format(Datapath)): 
+      with open(path, 'w') as file:
+         file.write('')   
+
 class dataHandler:
    
    def __init__ (self):
