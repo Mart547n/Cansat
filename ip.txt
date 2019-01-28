@@ -1,1 +1,2 @@
-default ip adress of raspberry pi = 192.168.43.111
+default ip adress of raspberry pi = 192.168.43.111spberry
+

@@ -51,4 +51,3 @@ def saveData(category, time, data = 'None'):
    except IOError:
       # log the error if there is an error
       logMsg(message ='File Not Found...\n  {0}'.format(path), level = 'error')
-   
