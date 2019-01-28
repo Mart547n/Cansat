@@ -1,4 +1,5 @@
 import os, glob
+from datetime import datetime
 from HF import getPath, logMsg
 
 def resetData(logNames = ['log']):
@@ -6,7 +7,11 @@ def resetData(logNames = ['log']):
    for logName in logNames:
       # Opens the log
       with open ("{0}.txt".format(logName), 'w') as log:
-         log.write('')
+         if (logName == 'log'):
+            log.write('Startup Time: {0}'.format(datetime.now().time()))
+         else:
+            # Dele everything in the log
+            log.write('')
 
 def getCategories():
    """ Returns all of the categories """
@@ -45,5 +50,5 @@ def saveData(category, time, data = 'None'):
          file.write("{0}{1}\n".format(time, data))
    except IOError:
       # log the error if there is an error
-      logMsg(message ='\nFile Not Found...\n  {0}'.format(path), level = 'error')
+      logMsg(message ='File Not Found...\n  {0}'.format(path), level = 'error')
    
