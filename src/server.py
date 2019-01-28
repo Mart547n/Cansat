@@ -1,5 +1,6 @@
 from flask import Flask, request, render_template, send_file
-from data import dataHandler
+from HF import getPath
+from data import getCategories
 import socket
 
 # The data handler object
@@ -10,9 +11,9 @@ app = Flask(__name__)
 
 @app.route('/download/<category>', methods = ['GET','POST'])
 def download(category):
-   if (category in dH.categories):
+   if (category in getCategories()):
       # Download the .txt file
-         path = dH.getPath(category)
+         path = getPath(category)
          return send_file(path, attachment_filename = '{0}.txt'.format(category))
    else:
       # Trow an error
