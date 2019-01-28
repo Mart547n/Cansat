@@ -1,4 +1,4 @@
-from flask import Flask, send_file
+from flask import Flask, request, render_template, send_file
 from data import dataHandler
 import socket
 
@@ -8,8 +8,8 @@ dH = dataHandler(r = False)
 # The file server implementation
 app = Flask(__name__)
 
-@app.route('/download/<category>')
-def download(category, methods = ['POST']):
+@app.route('/download/<category>', methods = ['GET','POST'])
+def download(category):
    if (category in dH.categories):
       # Download the .txt file
          path = dH.getPath(category)
@@ -17,6 +17,16 @@ def download(category, methods = ['POST']):
    else:
       # Trow an error
       return 'Wooooops that was not a correct category please reload with a new url...'
+
+@app.route('/change/settings', methods = ['GET', 'POST'])
+def changeSettings():
+   # Allow the user to upload a json file and replace the current settings.json file with this file
+   if (request.method == 'POST'):
+      # Upload code
+      pass
+   else:
+      # Display code
+      pass
 
 if (__name__ == "__main__"):
    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
