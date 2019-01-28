@@ -15,8 +15,8 @@ def logMsg(message = None, level = 'info'):
          log.write('[{0}]: {1}. \n'.format(level, message))
 
 def getPath(logName = None):
-   """ Returns the path to a datalog """ 
-   if (logName != None):
+   """ Returns the path to a datalog if the logName argument is = None then return the data path """ 
+   if (logName != None & logName != 'log'):
       # Returns the path to a specific log
       path = os.path.dirname(os.path.realpath(__file__))
       path = path[:-3] + ('data\\{0}.txt'.format(logName))
