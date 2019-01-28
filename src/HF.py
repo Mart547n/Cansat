@@ -5,18 +5,18 @@ def getTimeMiliSec():
    """ Returns the current time in miliseconds """
    return int(round(time.time() * 1000))
 
-def logMsg(message = None, level = 'info'):
+def logMsg(message = '', level = 'info'):
    """ Logs the message to the log """
-   if (message != None):
+   if (message != ''):
       # Get the path to the log file
       path = getPath(logName = 'log')
       with open(path, 'a+') as log:
          # Log the message
          log.write('[{0}]: {1}. \n'.format(level, message))
 
-def getPath(logName = None):
+def getPath(logName = ''):
    """ Returns the path to a datalog if the logName argument is = None then return the data path """ 
-   if (logName != None & logName != 'log'):
+   if (logName != '' & logName != 'log'):
       # Returns the path to a specific log
       path = os.path.dirname(os.path.realpath(__file__))
       path = path[:-3] + ('data\\{0}.txt'.format(logName))
