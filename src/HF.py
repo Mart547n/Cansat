@@ -28,6 +28,7 @@ def getPath(logName = ''):
       # Returns the path to the data directory
       path = os.path.dirname(os.path.realpath(__file__))
       path = path[:-3] + 'data'
+   print('path to {0}: {1}'.format(logName, path))
    return path
 
 def readDataLog(self, category):
