@@ -3,9 +3,6 @@ from HF import getPath
 from data import getCategories
 import socket
 
-# The data handler object
-dH = dataHandler(r = False)
-
 # The file server implementation
 app = Flask(__name__)
 
