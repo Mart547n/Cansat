@@ -13,6 +13,7 @@ def logMsg(message = '', level = 'info'):
       with open(path, 'a+') as log:
          # Log the message
          log.write('[{0}]: {1}. \n'.format(level, message))
+         print('[{0}]: {1}. \n'.format(level, message))
 
 def getPath(logName = ''):
    """ Returns the path to a datalog if the logName argument is = None then return the data path """ 
