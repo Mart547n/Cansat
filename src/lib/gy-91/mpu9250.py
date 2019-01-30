@@ -85,8 +85,4 @@ class MPU9250():
 
 
 mpu9250 = MPU9250()
-
-mpu9250.readAccel()
-mpu9250.readGyro()
-mpu9250.readTemp()
-mpu9250.readMagnet()
+print("Data: {0}, {1}, {2}, {3}".format(mpu9250.readAccel(), mpu9250.readGyro(), mpu9250.readTemp(), mpu9250.readMagnet()))
