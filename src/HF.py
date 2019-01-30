@@ -20,7 +20,7 @@ def getPath(logName = ''):
    if (logName != '' and logName != 'log'):
       # Returns the path to a specific log
       path = os.path.dirname(os.path.realpath(__file__))
-      path = path[:-3] + ('data/{0}.txt'.format(logName))
+      path = path[:-3] + ('data\\{0}.txt'.format(logName))
    elif (logName == 'log'):
       # Return the path to the log file
       path = os.path.dirname(os.path.realpath(__file__)) + '/{0}.txt'.format(logName)
