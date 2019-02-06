@@ -1,5 +1,5 @@
-from bmp280 import *
-from mpu9250 import *
+from bmp280 import BMP280
+from mpu9250 import MPU9250
 
 if (__name__ == '__main__'):
    # Perform test

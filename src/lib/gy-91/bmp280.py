@@ -80,4 +80,5 @@ class BMP280(object):
         
 bmp280 = BMP280()
 
-bmp280.readAll()
+if (__name__ == '__main__'):
+  print(bmp280.readAll())
