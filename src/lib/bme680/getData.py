@@ -1,28 +1,55 @@
-import bme680, time 
+import bme680, time
 
-# Creates an instance of the sensor
-sensor = bme680.BME680()
+class Bme680:
 
-# Costumises the settings for the sensor (takes care of how long each mesurement lasts)
-sensor.set_humidity_oversample(bme680.OS_2X)
-sensor.set_pressure_oversample(bme680.OS_2X)
-sensor.set_temperature_oversample(bme680.OS_2x)
+   def __init__ (self, addFilter = False):
+      # Initialisation:
+      try:
+         self.sensor = bme680.BME680(bme680.I2C_ADDR_PRIMARY)
+      except IOError:
+         self.sensor = bme680.BME680(bme680.I2C_ADDR_SECONDARY)
+      self.applySensorSettings()
 
-# Filters the values (makes the readings more stable)
-sensor.set_filter(bme680.FILTER_SIZE_3)
+      if (addFilter == True):
+         # Adds a filter on top of the readings (Makes the more stable)
+         self.sensor.set_filter(bme680.FILTER_SIZE_3)
 
-""" 
-# Used for capturing gas data:
-sensor.set_gas_status(bme680.ENABLE_GAS_MEAS)
-sensor.set_gas_heater_temperature(320)
-sensor.set_gas_heater_duration(150)
-sensor.select_gas_heater_profile(0)
-"""
+   def applySensorSettings (self):
+      # Applies the settings to the sensor 
+      self.sensor.set_humidity_oversample(bme680.OS_2X)
+      self.sensor.set_pressure_oversample(bme680.OS_2X)
+      self.sensor.set_temperature_oversample(bme680.OS_2x)
 
-while True:
-   if sensor.get_sensor_data():
-         output = "{0:.2f} C,{1:.2f} hPa,{2:.2f} % RH".format(sensor.data.temperature, sensor.data.pressure, sensor.data.humidity)
+   def readTemperature(self):
+      # Reads and return temperture data:
+      if (self.sensor.get_sensor_data() == True):
+         return self.sensor.data.temperature
+      else: 
+         return None
+   
+   def readPresure(self):
+      # Reads and returns Presure data:
+      if (self.sensor.get_sensor_data() == True):
+         return self.sensor.data.temperature
+      else: 
+         return None
 
-         print(output)
+   def readHumidity(self):
+      # Reads and returns Humidity data:
+      if (self.sensor.get_sensor_data() == True):
+         return self.sensor.data.temperature
+      else: 
+         return None
 
-   time.sleep(1)
+   def ready(self):
+      # Returns a bool (wether or not the sensor is ready or not)
+      return self.sensor.get_sensor_data()
+
+if (__name__ == "__main__"):
+   sensor = Bme680()
+   while (True):
+      if (sensor.ready() == True):
+         print("{0:.2f} Degrees".format(sensor.readTemperature))
+
+      time.sleep(1)
+      
