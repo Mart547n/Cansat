@@ -46,10 +46,14 @@ class Bme680:
       return self.sensor.get_sensor_data()
 
 if (__name__ == "__main__"):
+   startTime = time.time()
    sensor = Bme680(addFilter = True)
    while (True):
       if (sensor.ready() == True):
-         print("{0} Degrees \n {1} hPa \n {2} % RH".format(sensor.readTemperature(), sensor.readPresure(), sensor.readHumidity()))
+         print("time: {0} s , {1} Degrees \n {2} hPa \n {3} % RH".format((time.time() - startTime), 
+                                                                          sensor.readTemperature(),
+                                                                          sensor.readPresure(), 
+                                                                          sensor.readHumidity()))
          
-      time.sleep(1)
+      time.sleep(0.5)
       
