@@ -6,7 +6,7 @@ sensor = bme680.BME680()
 # Costumises the settings for the sensor (takes care of how long each mesurement lasts)
 sensor.set_humidity_oversample(bme680.OS_2X)
 sensor.set_pressure_oversample(bme680.OS_4X)
-sensor.set_temperature_oversample(bme680.OS_8x)
+sensor.set_temperature_oversample(bme680.OS_4x)
 
 # Filters the values (makes the readings more stable)
 sensor.set_filter(bme680.FILTER_SIZE_3)
