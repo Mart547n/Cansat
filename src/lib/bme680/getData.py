@@ -52,7 +52,7 @@ if (__name__ == "__main__"):
    sensor = Bme680(addFilter = True)
    while (True):
       if (sensor.ready() == True):
-         print("{0} Degrees".format(sensor.readTemperature))
+         print("{0} Degrees".format(sensor.readTemperature()))
 
       time.sleep(1)
       
