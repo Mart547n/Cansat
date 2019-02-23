@@ -5,8 +5,8 @@ sensor = bme680.BME680()
 
 # Costumises the settings for the sensor (takes care of how long each mesurement lasts)
 sensor.set_humidity_oversample(bme680.OS_2X)
-sensor.set_pressure_oversample(bme680.OS_4X)
-sensor.set_temperature_oversample(bme680.OS_4x)
+sensor.set_pressure_oversample(bme680.OS_2X)
+sensor.set_temperature_oversample(bme680.OS_2x)
 
 # Filters the values (makes the readings more stable)
 sensor.set_filter(bme680.FILTER_SIZE_3)
@@ -21,7 +21,7 @@ sensor.select_gas_heater_profile(0)
 
 while True:
    if sensor.get_sensor_data():
-         output = "{0:.2f} C,{1:.2f} hPa,{2:.2f} %RH".format(sensor.data.temperature, sensor.data.pressure, sensor.data.humidity)
+         output = "{0:.2f} C,{1:.2f} hPa,{2:.2f} % RH".format(sensor.data.temperature, sensor.data.pressure, sensor.data.humidity)
 
          print(output)
 
