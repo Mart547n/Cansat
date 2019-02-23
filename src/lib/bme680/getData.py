@@ -29,16 +29,16 @@ class Bme680:
    
    def readPresure(self):
       # Reads and returns Presure data:
-      if (self.sensor.get_sensor_data() == True):
-         return self.sensor.data.temperature
-      else: 
+      try:
+         return self.sensor.data.pressure
+      except IOError:
          return None
 
    def readHumidity(self):
       # Reads and returns Humidity data:
-      if (self.sensor.get_sensor_data() == True):
-         return self.sensor.data.temperature
-      else: 
+      try:
+         return self.sensor.data.humidity
+      except IOError:
          return None
 
    def ready(self):
