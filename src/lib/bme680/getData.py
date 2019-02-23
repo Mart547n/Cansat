@@ -23,10 +23,7 @@ class Bme680:
    def readTemperature(self):
       # Reads and return temperture data:
       try:
-         if (self.sensor.get_sensor_data() == True):
-            return self.sensor.data.temperature
-         else: 
-            return None
+         return self.sensor.data.temperature
       except IOError:
          return None
    
