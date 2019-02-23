@@ -49,7 +49,7 @@ if (__name__ == "__main__"):
    sensor = Bme680(addFilter = True)
    while (True):
       if (sensor.ready() == True):
-         print("{0} Degrees".format(sensor.readTemperature()))
-
+         print("{0} Degrees \n {1} hPa \n {2} % RH".format(sensor.readTemperature(), sensor.readPresure(), sensor.readHumidity()))
+         
       time.sleep(1)
       
