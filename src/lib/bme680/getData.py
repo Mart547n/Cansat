@@ -16,9 +16,9 @@ class Bme680:
 
    def applySensorSettings (self):
       # Applies the settings to the sensor 
-      self.sensor.set_humidity_oversample(bme680.OS_2X)
-      self.sensor.set_pressure_oversample(bme680.OS_4X)
-      self.sensor.set_temperature_oversample(bme680.OS_8x)
+      self.sensor.set_humidity_oversample(2)
+      self.sensor.set_pressure_oversample(2)
+      self.sensor.set_temperature_oversample(2)
 
    def readTemperature(self):
       # Reads and return temperture data:
