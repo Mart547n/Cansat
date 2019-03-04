@@ -1,23 +1,18 @@
 import bme680, time
-from helper import logMsg
 
 class Bme680:
    def __init__ (self, addFilter = False):
       # Initialisation:
       try:
          self.sensor = bme680.BME680(bme680.I2C_ADDR_PRIMARY)
-         logMsg("bme680 setup at primary adress")
       except IOError:
          self.sensor = bme680.BME680(bme680.I2C_ADDR_SECONDARY)
-         logMsg("bme680 setup at secondary adress")
       self.applySensorSettings()
 
       if (addFilter == True):
          # Adds a filter on top of the readings (Makes the more stable)
          self.sensor.set_filter(bme680.FILTER_SIZE_3)
-         logMsg("Filter turned On")
       else: 
-         logMsg("Filter Turned Of")
 
    def timeReadings(self):
       # Returns the time in ms it takes to get the outputs
