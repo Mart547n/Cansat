@@ -1,6 +1,8 @@
-import bme680, time
+import time
+import bme680
 
 class Bme680:
+
    def __init__ (self, addFilter = False):
       # Initialisation:
       try:
