@@ -6,6 +6,7 @@ class Bme680:
    def __init__ (self, addFilter = False):
       # Initialisation:
       try:
+         bme680.BME680()
          self.sensor = bme680.BME680(bme680.I2C_ADDR_PRIMARY)
       except IOError:
          self.sensor = bme680.BME680(bme680.I2C_ADDR_SECONDARY)
