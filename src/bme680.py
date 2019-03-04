@@ -12,7 +12,6 @@ class Bme680:
       if (addFilter == True):
          # Adds a filter on top of the readings (Makes the more stable)
          self.sensor.set_filter(bme680.FILTER_SIZE_3)
-      else: 
 
    def timeReadings(self):
       # Returns the time in ms it takes to get the outputs
