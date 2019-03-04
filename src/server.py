@@ -1,5 +1,5 @@
 from flask import Flask, request, render_template, send_file
-from HF import getPath
+from helper import getPath
 from data import getCategories
 import socket
 
