@@ -5,7 +5,7 @@ class Bme680:
 
    def __init__ (self, addFilter = False):
       # Initialisation:
-      try:
+      try: 
          self.sensor = bme680.BME680(bme680.I2C_ADDR_PRIMARY)
       except IOError:
          self.sensor = bme680.BME680(bme680.I2C_ADDR_SECONDARY)
@@ -32,7 +32,7 @@ class Bme680:
    def readTemperature(self):
       # Reads and return temperture data:
       try:
-         return "{0:10.f}".fomrat(self.sensor.data.temperature)
+         return "{0:10.f}".format(self.sensor.data.temperature)
       except IOError:
          return None
    
