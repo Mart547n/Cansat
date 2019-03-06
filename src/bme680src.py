@@ -32,7 +32,7 @@ class Bme680:
    def readTemperature(self):
       # Reads and return temperture data:
       try:
-         return "{0:10.f}".format(self.sensor.data.temperature)
+         return "{0:10.4f}".format(self.sensor.data.temperature)
       except IOError:
          return None
    
