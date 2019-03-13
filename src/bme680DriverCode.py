@@ -1,6 +1,6 @@
 import time
 import bme680
-from logger import logger
+from logger import Logger
 
 class Bme680:
 
