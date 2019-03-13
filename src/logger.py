@@ -24,7 +24,7 @@ class Logger: # This class is used to log the data ect.
          path = path[:-3] + ('data\\{0}.txt'.format(logName))
       elif (logName == 'log'):
          # Return the path to the log file
-         path = os.path.dirname(os.path.realpath(__file__)) + '/{0}.txt'.format(logName)
+         path = os.path.dirname(os.path.realpath(__file__)) + '\{0}.txt'.format(logName)
       else:
          # Returns the path to the data directory
          path = os.path.dirname(os.path.realpath(__file__))
