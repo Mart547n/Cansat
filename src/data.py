@@ -1,11 +1,11 @@
 import os, glob
 from datetime import datetime
-from helper import help
+from helper import Help
 
 class dataHandler:
 
    def __init__(self):
-      self.helper = help()
+      self.helper = Help()
 
    def resetData(self, logNames = ['log']):
       """ Resets the data logs (specified in the logNames list) """
@@ -22,7 +22,7 @@ class dataHandler:
       """ Returns all of the categories """
       # Make a list of files 
       files = []
-      for file in glob.glob("{0}\\*.txt".format(self.help.getPath())):
+      for file in glob.glob("{0}\\*.txt".format(self.helper.getPath())):
          files.append(file)
       
       # Create a categories lst
@@ -48,11 +48,11 @@ class dataHandler:
          # Format the data in the regular way
          data = ';{0}'.format(str(data))
 
-      path = self.help.getPath(category)
+      path = self.helper.getPath(category)
       try:
          with open(path, 'a+') as file:
             # Write the time and data to the datalog of the category specified
             file.write("{0}{1}\n".format(time, data))
       except IOError:
          # log the error if there is an error
-         self.help.logMsg(message ='File Not Found...\n  {0}'.format(path), level = 'error')
+         self.helper.logMsg(message ='File Not Found...\n  {0}'.format(path), level = 'error')

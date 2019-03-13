@@ -3,7 +3,7 @@ import time, os
 
 class Help: 
    
-   def getTimeMiliSec():
+   def getTimeMiliSec(self):
       """ Returns the current time in miliseconds """
       return int(round(time.time() * 1000))
 
