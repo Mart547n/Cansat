@@ -1,5 +1,6 @@
 import time
 import bme680
+from logger import logger
 
 class Bme680:
 
@@ -55,16 +56,17 @@ class Bme680:
       return self.sensor.get_sensor_data()
 
 if (__name__ == "__main__"):
+   logger = Logger()
    startTime = time.time()
    sensor = Bme680(addFilter = True)
    timeToTakeReadings = sensor.timeReadings()
    print("Time to take readings {0} ms".format(timeToTakeReadings))
    while (True):
       if (sensor.ready() == True):
+         logger.saveData("temp", logger.getTimeMiliSec(), data = sensor.readTemperature)
          print("time: {0} s , {1} Degrees \n {2} hPa \n {3} % RH".format((time.time() - startTime), 
                                                                           sensor.readTemperature(),
                                                                           sensor.readPresure(), 
                                                                           sensor.readHumidity()))
          
       time.sleep(0.5 - (timeToTakeReadings/1000))
-      
