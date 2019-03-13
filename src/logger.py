@@ -94,3 +94,7 @@ class Logger: # This class is used to log the data ect.
          # log the error if there is an error
          self.logMsg(message ='File Not Found...\n  {0}'.format(path), level = 'error')
 
+if (__name__ == "__main__"):
+   # Perform a test
+   logger = Logger()
+   logger.saveData("temp", time.time(), data="FUCK OF")
