@@ -77,7 +77,7 @@ class Logger: # This class is used to log the data ect.
             Category takes a string, can be ether one of these:
                (acc, temp, pre), care if you use any other categories than these the program will save to a random file
       """
-      if (type(data) == list or tuple):
+      if (type(data) == list or type(data) == tuple):
          # Format the data differently
          newData = [';' + (str(d)) for d in data]
          data = ''.join(newData)
