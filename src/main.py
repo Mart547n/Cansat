@@ -14,10 +14,10 @@ if (__name__ == "__main__"):
     print("Sensor Interface initialised.")
     print("Main loop starting...")
     # Main loop
-    startTime = time.time()
-    while (time.time() - startTime >= 120.0):
+    startTime = int(round(time.time()))
+    while (int(round(time.time())) - startTime <= 120):
         if (sensor.ready() == True):
-         logger.saveData("temp", logger.getTimeMiliSec(), data = sensor.readTemperature)
+         logger.saveData("temp", logger.getTimeMiliSec() - startTime, data = sensor.readTemperature)
          print("time: {0} s , {1} Degrees \n {2} hPa \n {3} % RH".format((time.time() - startTime), 
                                                                           sensor.readTemperature(),
                                                                           sensor.readPresure(), 
