@@ -12,7 +12,7 @@ if (__name__ == "__main__"):
     timeDelay = sensor.timeReadings()
     time.sleep(0.5)
     print("Sensor Interface initialised.")
-    
+    print("Main loop starting...")
     # Main loop
     startTime = time.time()
     while (time.time() - startTime >= 120.0):

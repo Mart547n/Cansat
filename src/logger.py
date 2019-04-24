@@ -5,7 +5,7 @@ class Logger: # This class is used to log the data ect.
    
    def getTimeMiliSec(self):
       """ Returns the current time in miliseconds """
-      return int(round(time.time() * 1000))
+      return int(round(time.time()))
 
    def logMsg(self, message = '', level = 'info'):
       """ Logs the message to the log """
